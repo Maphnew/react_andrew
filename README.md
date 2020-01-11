@@ -20,8 +20,80 @@
 
 ## Section 2: Setting up Your Environment
 7분
+
+3. Section Intro: Setting up Your Environment
+1분
+
+4. Installing Visual Studio Code
+2분
+
+5. Installing Node.js & Yarn
+4분
+
+```bash
+$ npm i -g yarn
+$ yarn --version
+```
+
 ## Section 3: Hello React
 0 / 16|3시간 45분
+
+6. Section Intro: Hello React
+2분
+
+- http://indecision.mead.io
+- http://links.mead.io/indecision
+
+- Fundermentals
+- JSX
+
+7. Setting up a Web Server
+12분
+
+8. Hello React
+19분
+
+9. Setting up Babel
+17분
+
+10. Exploring JSX
+15분
+
+11. JSX Expressions
+10분
+
+12. Conditional Rendering in JSX
+23분
+
+13. ES6 Aside: const and let
+16분
+
+14. ES6 Aside: Arrow Functions
+13분
+
+15. ES6 Aside: Arrow Functions Part II
+20분
+
+16. Events and Attributes
+17분
+
+17. Manual Data Binding
+12분
+
+18. Forms and Inputs
+18분
+
+19. Arrays in JSX
+14분
+
+20. Picking an Option
+9분
+
+21. Build It: Visibility Toggle
+9분
+
+
+
 ## Section 4: React Components
 3시간
 ## Section 5: Stateless Functional Components
