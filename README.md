@@ -15,7 +15,8 @@
 2. "Why should I learn React?"
 5분
 
-
+- Library
+- The React community
 
 ## Section 2: Setting up Your Environment
 7분
