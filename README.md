@@ -2,7 +2,7 @@
 
 
 ## Section 1: Welcome
-10분
+10분 
 
 1. Welcome & Asking Good Questions
 5분
