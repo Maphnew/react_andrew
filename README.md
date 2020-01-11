@@ -50,11 +50,37 @@ $ yarn --version
 7. Setting up a Web Server
 12분
 
+```bash
+$ npm install -g live-server
+$ live-server -v
+$ live-server public
+```
+
 8. Hello React
 19분
 
+```JavaScript
+// app.js
+
+console.log('App.js is running!')
+
+// JSX - JavaScript XML
+// var template = <p>This is JSX from app.js</p>
+var template = React.createElement("h1", {
+    id: "aa s",
+    className: "aaa fff fff"
+  }, "This is JSX ggg");
+var appRoot = document.getElementById('app')
+
+ReactDOM.render(template, appRoot)
+```
+
 9. Setting up Babel
 17분
+
+```bash
+```
+
 
 10. Exploring JSX
 15분
