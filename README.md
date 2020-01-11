@@ -10,7 +10,7 @@
 - How to build React App
 - Part 1: How to build, render, submit form, user interaction
 - Part 2: Advanced, Ecosystem, Auth, Deploy
-- Using Q&A
+- Using Q&A  
 
 2. "Why should I learn React?"
 5분
