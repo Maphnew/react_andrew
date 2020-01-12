@@ -79,8 +79,27 @@ ReactDOM.render(template, appRoot)
 17분
 
 ```bash
+$ yarn global add babel-cli@6.24.1
+or $ npm i -g babel-cli@6.24.1
+$ babel --help
 ```
 
+```bash
+$ yarn init
+$ yarn add babel-preset-react@6.24.1 babel-preset-env@1.5.2
+```
+- Created package.json and yarn.lock
+
+```bash
+$ babel src/app.js --out-file=public/scripts/app.js --presets=env,react
+$ babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
+```
+- JSX to JavaScript
+
+- To install node modules
+```bash
+$ yarn install
+```
 
 10. Exploring JSX
 15분
