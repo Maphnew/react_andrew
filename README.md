@@ -100,6 +100,12 @@ $ babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch
 ```bash
 $ yarn install
 ```
+- git ignore
+```bash
+$ git rm -r --cached .
+$ git add .
+$ git commit -m "fixed untracked files"
+```
 
 10. Exploring JSX
 15분
