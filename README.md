@@ -188,6 +188,93 @@ ReactDOM.render(template, appRoot)
 12. Conditional Rendering in JSX
 23분
 
+- Conditional Rendering
+- Conditional Logic in general
+
+- 1. if statements
+```JavaScript
+// 1. if statements
+
+// app.js
+var user = {
+    name: 'Maphnew',
+    age: 25
+}
+function getLocation(location) {
+    if (location) {
+        return location
+    } else {
+        return 'Unknown';
+    }
+}
+var templateTwo = (
+    <div>
+        <h1>{user.name}</h1>
+        <p>Age: {user.age}</p>
+        <p>Location: {getLocation(user.location)}</p>
+    </div>
+)
+```
+- 2. ternary operators
+```JavaScript
+// ternary operators
+true ? 'Maphnew' : 'Anonymous'
+"Maphnew"
+
+false ? 'Maphnew' : 'Anonymous'
+"Anonymous"
+
+// app.js
+var user = {
+    name: 'Maphnew',
+    age: 25
+}
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>
+    } 
+}
+var templateTwo = (
+    <div>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
+        <p>Age: {user.age}</p>
+        {getLocation(user.location)}
+    </div>
+)
+```
+- 3. logical and operator
+```JavaScript
+// logical and operator
+true && 'Some age'
+"Some age"
+
+false && 'Some age'
+false
+
+// app.js
+var user = {
+    name: 'Maphnew',
+    age: 35,
+    location: 'Ulsan'
+}
+
+function getLocation(location) {
+    if (location) {
+        return <p>Location: {location}</p>
+    } 
+}
+var templateTwo = (
+    <div>
+        <h1>{user.name ? user.name : 'Anonymous'}</h1>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
+    </div>
+)
+```
+
+```JavaScript
+```
+
 13. ES6 Aside: const and let
 16분
 
