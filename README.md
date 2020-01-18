@@ -272,11 +272,49 @@ var templateTwo = (
 )
 ```
 
-```JavaScript
-```
+
 
 13. ES6 Aside: const and let
 16분
+- Create folder and file 'playground/es6-let-const.js'
+```bash
+babel .\src\playground\es6-let-const.js --out-file=public/scripts/app.js --presets=env,react --watch
+```
+
+```JavaScript
+// playground/es6-let-const.js
+
+var nameVar = 'Maphnew'
+var nameVar = 'Mike'
+console.log('nameVar', nameVar)
+
+let nameLet = 'Jen'
+nameLet = 'Juli'
+console.log('nameLet', nameLet)
+
+const nameConst = 'Frank'
+console.log('nameConst', nameConst)
+
+function getPetName() {
+    const petName = 'Hal'
+    return petName
+}
+
+const petName = getPetName()
+console.log(petName)
+
+// Block scoping (let, const)
+
+const fullName = 'Jen Kim'
+let firstName
+
+if (fullName) {
+    firstName = fullName.split(' ')[0]
+    console.log(firstName)
+}
+
+console.log(firstName)
+```
 
 14. ES6 Aside: Arrow Functions
 13분
