@@ -1,88 +1,45 @@
 'use strict';
 
-console.log('App.js is running!');
+// arguments object - no longer bound with arrow functions
 
-// if statements
-// ternary operators
-// logical and operator
-
-// only render the subtitle (and p tag) if subtitle exist - logical and operator
-// render new p tag - if options.length > 0 "Here are your options" "No options"
-
-// JSX - JavaScript XML
-
-var app = {
-    title: 'Indecision App',
-    subtitle: 'Put your life in the hands of a computer',
-    options: ['One', 'Two']
+var add = function add(a, b) {
+    // console.log(arguments)
+    return a + b;
 };
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        app.title
-    ),
-    app.subtitle && React.createElement(
-        'p',
-        null,
-        app.subtitle
-    ),
-    React.createElement(
-        'p',
-        null,
-        app.options && app.options.length > 0 ? "Here are your options" : "No options"
-    ),
-    React.createElement(
-        'ol',
-        null,
-        React.createElement(
-            'li',
-            null,
-            'Item one'
-        ),
-        React.createElement(
-            'li',
-            null,
-            'Item two'
-        )
-    )
-);
+console.log(add(55, 1, 1001));
+
+// this keyword - no longer bound
+
 var user = {
     name: 'Maphnew',
-    age: 35,
-    location: 'Ulsan'
+    cities: ['Philadelphia', 'New York', 'Dublin'],
+    printPlacesLived: function printPlacesLived() {
+        var _this = this;
+
+        return this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + _this.city;
+        });
+    }
 };
 
-function getLocation(location) {
-    if (location) {
-        return React.createElement(
-            'p',
-            null,
-            'Location: ',
-            location
-        );
+console.log(user.printPlacesLived());
+
+// challenge area
+
+var multiplier = {
+    // numbers - array of numbers
+    // multiplyBy - single number
+    // multiply - return a new array where the number have been multiplied
+    numbers: [1, 2, 3],
+    multiplyBy: 2,
+    multiply: function multiply() {
+        var _this2 = this;
+
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
     }
-}
-var templateTwo = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.name ? user.name : 'Anonymous'
-    ),
-    user.age && user.age >= 18 && React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    getLocation(user.location)
-);
+};
 
-var appRoot = document.getElementById('app');
-
-ReactDOM.render(template, appRoot);
+console.log(multiplier.multiply()); // [1,2,3] 2 [2,4,6]

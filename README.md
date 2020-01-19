@@ -319,8 +319,82 @@ console.log(firstName)
 14. ES6 Aside: Arrow Functions
 13분
 
+```JavaScript
+// playground/es6-arrow-function.js
+
+const square = function (x) {
+    return x * x
+}
+
+function anotherSquare(x) {
+    return x * x
+}
+
+// const squareArrow = (x) => {
+//     return x * x
+// }
+
+const squareArrow = (x) => x * x
+
+console.log(square(8))
+console.log(squareArrow(4))
+
+// challenge - use arrow functions
+// getFirstName('Mike Smith') -> "Mike"
+// Create regular arrow function
+// Create arrow function using shorthand syntex
+
+const getFirstName = (fullName) => {
+    return fullName.split(' ')[0]
+}
+console.log(getFirstName('Mike Smith'))
+
+const getFirstName2 = (fullName) => fullName.split(' ')[0]
+console.log(getFirstName2('Sam Smith'))
+```
+
 15. ES6 Aside: Arrow Functions Part II
 20분
+
+```JavaScript
+// playground/es6-arrow-function2.js
+
+// arguments object - no longer bound with arrow functions
+
+const add = (a, b) => {
+    // console.log(arguments)
+    return a + b
+}
+
+console.log(add(55, 1, 1001))
+
+// this keyword - no longer bound
+
+const user = {
+    name: 'Maphnew',
+    cities: ['Philadelphia', 'New York', 'Dublin'],
+    printPlacesLived() {
+        return this.cities.map((city) => this.name + ' has lived in ' + this.city)
+    }
+}
+
+console.log(user.printPlacesLived())
+
+// challenge area
+
+const multiplier = {
+    // numbers - array of numbers
+    // multiplyBy - single number
+    // multiply - return a new array where the number have been multiplied
+    numbers: [1,2,3],
+    multiplyBy: 2,
+    multiply() {
+        return this.numbers.map((number) => number * this.multiplyBy)
+    }
+}
+
+console.log(multiplier.multiply()) // [1,2,3] 2 [2,4,6]
+```
 
 16. Events and Attributes
 17분
