@@ -29,27 +29,33 @@ const template = (
 
 let count = 0
 const addOne = () => {
-    console.log('addOne')
+    count++
+    rederCounterApp()
 }
 const minusOne = () => {
-    console.log('minusOne')
+    // subtract 1 from count - rerender
+    count--
+    rederCounterApp()
 }
 const reset = () => {
-    console.log('reset')
+    // set count to 0 a rerender
+    count = 0
+    rederCounterApp()
 }
-const templateTwo = (
-    <div>
-        <h1>Count: {count}</h1>
-        <button onClick={addOne}>+1</button>
-        <button onClick={minusOne}>-1</button>
-        <button onClick={reset}>reset</button>
-    </div>
-)
-
-// Challenge
-// Make button "-1" - setup minusOne function and register - log "minusOne"
-// Make reset button "reset" - setup reset function - log "reset"
 
 const appRoot = document.getElementById('app')
 
-ReactDOM.render(templateTwo, appRoot)
+const rederCounterApp = () => {
+    const templateTwo = (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={addOne}>+1</button>
+            <button onClick={minusOne}>-1</button>
+            <button onClick={reset}>reset</button>
+        </div>
+    )
+
+    ReactDOM.render(templateTwo, appRoot)
+}
+
+rederCounterApp()
