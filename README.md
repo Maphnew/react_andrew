@@ -578,8 +578,18 @@ const render = () =>{
 20. Picking an Option
 9분
 
+- Random, Floor
+- disabled
+
 ```JavaScript
 
+const onMakeDecision = () => {
+    const randomNum = Math.floor(Math.random() * app.options.length)
+    const option = app.options[randomNum]
+    alert(option)
+}
+
+<button disabled={app.options.length === 0} onClick={onMakeDecision}>What should I do?</button>
 
 ```
 
