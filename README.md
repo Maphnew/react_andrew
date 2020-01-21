@@ -636,6 +636,78 @@ render()
 
 ## Section 4: React Components
 3시간
+
+22. Section Intro: React Components
+1분
+
+- React is component based architecture
+- Break big complex application up into small pieces(component)
+
+23. Thinking in React
+7분
+
+> Twitter  
+- header component \<Header />
+- profile component \<ProfileWidget />
+- trends component \<Trends />
+- trend component \<Tend />
+- tweet component \<Tweet />
+- parent component \<DashboardPage />
+
+> Indecision app  
+- \<IndecisionApp />
+- \<Header />
+- \<Action />
+- \<Options />
+- \<Option />
+- \<AddOption />
+
+24. ES6 Classes: Part I
+21분
+
+25. ES6 Classes: Part II
+18분
+
+26. Creating a React Component
+15분
+
+27. Nesting Components
+6분
+
+28. Component Props
+14분
+
+29. Events & Methods
+11분
+
+30. Method Binding
+11분
+
+31. What Is Component State?
+7분
+
+32. Adding State to Counter App: Part I
+8분
+
+33. Adding State to Counter App: Part II
+11분
+
+34. Alternative setState Syntax
+7분
+
+35. Build It: Adding State to VisibilityToggle
+8분
+
+36. Indecision State: Part I
+17분
+
+37. Indecision State: Part II
+15분
+
+38. Summary: Props vs. State
+4분
+
+
 ## Section 5: Stateless Functional Components
 1시간 23분
 ## Section 6: Webpack
