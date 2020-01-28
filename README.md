@@ -1012,6 +1012,7 @@ ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
 - jsx onClick, onSubmit
 - function in the class
 
+
 ```JavaScript
 // src/app.js
 
