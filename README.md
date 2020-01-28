@@ -1011,7 +1011,6 @@ ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
 
 - jsx onClick, onSubmit
 - function in the class
-- test
 
 ```JavaScript
 // src/app.js
@@ -1085,6 +1084,46 @@ class AddOption extends React.Component {
 30. Method Binding
 11분
 
+```JavaScript
+// example
+
+const obj = {
+    name: 'Virkram',
+    getName() {
+        return this.name
+    }
+}
+
+const getName = obj.getName.bind({ name: 'Maphnew'})
+
+console.log(getName())
+
+```
+- constructor(props)
+
+```JavaScript
+// src/app.js
+
+class Options extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleRemoveAll = this.handleRemoveAll.bind(this)
+    }
+    handleRemoveAll() {
+        console.log(this.props.options)
+    }
+    render() {
+        return (
+            <div>
+                <button onClick={this.handleRemoveAll}>Remove All</button>
+                {
+                    this.props.options.map((option) => <Option key={option} optionText={option} />)
+                }
+            </div>
+        )
+    }
+}
+```
 31. What Is Component State?
 7분
 
