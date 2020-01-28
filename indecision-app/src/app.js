@@ -28,25 +28,34 @@ class Header extends React.Component {
 }
 
 class Action extends React.Component {
+    handlePick() {
+        alert('handlePick')
+    }
+    
     render() {
         return (
             <div>
-                <button>What should I do?</button>
+                <button onClick={this.handlePick}>What should I do?</button>
+                
             </div>
         )
     }
 }
 
 // Challenge
-// Setup options prop for Options component
-// Render the length of the array
 
-// Render new p tag for each option (set text, set key)
+// Add Remove All button
+// Setup handleRemoveAll -> alert some message
+// Setup onClick to fire the method
 
 class Options extends React.Component {
+    handleRemoveAll() {
+        alert('handleRemoveAll')
+    }
     render() {
         return (
             <div>
+                <button onClick={this.handleRemoveAll}>Remove All</button>
                 {
                     this.props.options.map((option) => <Option key={option} optionText={option} />)
                 }
@@ -55,8 +64,7 @@ class Options extends React.Component {
     }
 }
 
-// Challenge
-// Option -> Option component here
+
 class Option extends React.Component {
     render() {
         return (
@@ -66,13 +74,28 @@ class Option extends React.Component {
         )
     }
 }
+// Challenge
+
+// 1. Setup the form with text input and submit button
+// 2. Wire up onSubmit
+// 3. handleAddOption -> fetch the value typed -> if value, then alert
 
 class AddOption extends React.Component {
+    handleAddOption(e) {
+        e.preventDefault()
+
+        const option = e.target.elements.option.value.trim()
+        if(option) {
+            alert(option)
+        }
+    }
     render() {
         return (
             <div>
-                <input type="text" />
-                <button>ADD</button>
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option"/>
+                    <button>ADD Option</button>
+                </form>
             </div>
         )
     }
