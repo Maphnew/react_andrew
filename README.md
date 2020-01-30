@@ -1231,6 +1231,30 @@ class Counter extends React.Component {
 34. Alternative setState Syntax
 7분
 
+```JavaScript
+// playground/counter-example.js
+// example
+
+    handleReset(){
+        this.setState(() => {
+            return {
+                count: 0
+            }
+        })
+        this.setState((prevState) => {
+            return {
+                count: prevState.count + 1
+            }
+        })
+        // this.setState({
+        //     count: 0
+        // })
+        // this.setState({
+        //     count: this.state.count + 1
+        // })
+    }
+```
+
 35. Build It: Adding State to VisibilityToggle
 8분
 
