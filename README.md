@@ -1136,6 +1136,45 @@ class Options extends React.Component {
 32. Adding State to Counter App: Part I
 8분
 
+```JavaScript
+// playground/counter-example.js
+
+class Counter extends React.Component {
+    constructor(props){
+        super(props)
+        this.handleAddOne = this.handleAddOne.bind(this)
+        this.handleMinusOne = this.handleMinusOne.bind(this)
+        this.handleReset = this.handleReset.bind(this)
+    }
+    handleAddOne(){
+        console.log('AddOne')
+    }
+    handleMinusOne(){
+        console.log('MinusOne')
+    }
+    handleReset(){
+        console.log('Reset')
+    }
+
+    render() {
+        return (
+            <div>
+                <h1>Count: </h1>
+                <button onClick={this.handleAddOne}>+1</button>
+                <button onClick={this.handleMinusOne}>-1</button>
+                <button onClick={this.handleReset}>reset</button>
+            </div>
+        )
+    }
+}
+
+// Create three methods: handleAddOne, handleMinusOne, handleReset
+// Use console.log to print method name
+// Wire up onClick & bind in the constructor
+
+ReactDOM.render(<Counter />, document.getElementById('app'))
+```
+
 33. Adding State to Counter App: Part II
 11분
 
