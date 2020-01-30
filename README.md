@@ -1127,6 +1127,12 @@ class Options extends React.Component {
 31. What Is Component State?
 7분
 
+> 1. Setup default state object   
+> 2. Component rendered with default state values   
+> 3. Change state based on event   
+> 4. Component re-rendered using new state values
+> 5. Start again at 3  
+
 32. Adding State to Counter App: Part I
 8분
 
