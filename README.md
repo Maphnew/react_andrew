@@ -1306,6 +1306,87 @@ ReactDOM.render(<VisibilityToggle />, document.getElementById('app'))
 36. Indecision State: Part I
 17분
 
+- state / options(changing values), props / methods, binding props and state
+
+```JavaScript
+// src/app.js
+
+class IndecisionApp extends React.Component {
+    constructor(props) {
+        super(props)
+        this.handleDeleteOptions = this.handleDeleteOptions.bind(this)
+        this.handlePick = this.handlePick.bind(this)
+        this.state = {
+            options : ['Thing one','Thing two', 'Thing four']
+        }
+    }
+    handleDeleteOptions() {
+        this.setState(() => {
+            return {
+                options: []
+            }
+        })
+    }
+    handlePick() {
+        const randomNum = Math.floor(Math.random() * this.state.options.length)
+        const option = this.state.options[randomNum]
+        alert(option)
+    }
+    // handlePick - pass down to Action and setup onClick - bind here
+    // randomly pick an option and alert it
+    render() {
+        const title = 'Indecision'
+        const subtitle = 'Put your life in the hands of a Computer'
+        
+        return (
+            <div>
+                <Header title={title} subtitle={subtitle}/>
+                <Action 
+                    hasOptions={this.state.options.length > 0}
+                    handlePick={this.handlePick}
+                />
+                <Options 
+                    options={this.state.options} 
+                    handleDeleteOptions={this.handleDeleteOptions}
+                />
+                <AddOption />
+            </div>
+        )
+    }
+}
+
+class Action extends React.Component {
+    render() {
+        return (
+            <div>
+                <button 
+                    onClick={this.props.handlePick}
+                    disabled={!this.props.hasOptions}
+                >
+                    What should I do?
+                </button>
+                
+            </div>
+        )
+    }
+}
+
+class Options extends React.Component {
+    render() {
+        return (
+            <div>
+                <button onClick={this.props.handleDeleteOptions}>Remove All</button>
+                {
+                    this.props.options.map((option) => <Option key={option} optionText={option} />)
+                }
+            </div>
+        )
+    }
+}
+
+
+```
+
 37. Indecision State: Part II
 15분
 
