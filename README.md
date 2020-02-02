@@ -1492,6 +1492,31 @@ class AddOption extends React.Component {
 
 ## Section 5: Stateless Functional Components
 1시간 23분
+
+39. Section Intro: Stateless Functional Components
+1분
+
+40. The Stateless Functional Component
+14분
+
+41. Default Prop Values
+10분
+
+42. React Dev Tools
+7분
+
+43. Removing Individual Options
+16분
+
+44. Lifecycle Methods
+10분
+
+45. Saving and Loading Options Data
+15분
+
+46. Saving and Loading the Count
+11분
+
 ## Section 6: Webpack
 2시간 16분
 ## Section 7: Using a Third-Party Component
