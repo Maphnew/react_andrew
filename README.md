@@ -1475,6 +1475,20 @@ class AddOption extends React.Component {
 38. Summary: Props vs. State
 4분
 
+- Props    
+> - One way(parent -> child)   
+> - An object   
+> - Can be used when rendering    
+> - Changes (from above) cause re-renders   
+> - Comes from above   
+> - Can't be changed by component itself   
+
+- State   
+> - An object   
+> - Can be used when rendering    
+> - Changes cause re-renders   
+> - Defined in component itself   
+> - Can be changed by component itself   
 
 ## Section 5: Stateless Functional Components
 1시간 23분
