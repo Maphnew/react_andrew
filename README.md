@@ -1499,8 +1499,78 @@ class AddOption extends React.Component {
 40. The Stateless Functional Component
 14분
 
+```JavaScript
+// src/app.js
+
+const Header = (props) => {
+    return (
+        <div>
+            <h1>{props.title}</h1>
+            <h2>{props.subtitle}</h2>
+        </div>
+    )
+}
+
+const Action = (props) => {
+    return (
+        <div>
+            <button 
+                onClick={props.handlePick}
+                disabled={!props.hasOptions}
+            >
+                What should I do?
+            </button>
+            
+        </div>
+    )
+}
+
+const Options = (props) => {
+    return (
+        <div>
+            <button onClick={props.handleDeleteOptions}>Remove All</button>
+            {
+                props.options.map((option) => <Option key={option} optionText={option} />)
+            }
+    </div>
+    )
+}
+
+const Option = (props) => {
+    return (
+        <div>
+            {props.optionText}
+        </div>
+    )
+}
+```
+
 41. Default Prop Values
 10분
+
+```JavaScript
+// src/app.js
+
+
+        this.state = {
+            options : props.options
+        }
+
+IndecisionApp.defaultProps = {
+    options: []
+}
+
+// src/playground/counter-example.js
+
+        this.state = {
+            count: props.count
+        }
+
+Counter.defaultProps = {
+    count: 0
+}
+
+```
 
 42. React Dev Tools
 7분
