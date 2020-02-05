@@ -1575,6 +1575,12 @@ Counter.defaultProps = {
 42. React Dev Tools
 7분
 
+- google serach "chrome react devtools"    
+- add "react developer tools" extension to chrome  
+- restart the tabs
+- f12 
+- check Components tab
+
 43. Removing Individual Options
 16분
 
