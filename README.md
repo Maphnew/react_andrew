@@ -1584,6 +1584,67 @@ Counter.defaultProps = {
 43. Removing Individual Options
 16분
 
+- Make it single line
+```JavaScript
+//
+    handleDeleteOptions() {
+        this.setState(() =>({ options: [] }))
+    }
+//
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }))
+```
+- delete individual option
+```JavaScript
+///
+    handleDeleteOption(optionToRemove) {
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => optionToRemove !== option)
+        }))
+    }
+
+    /////
+                <Options 
+                    options={this.state.options} 
+                    handleDeleteOptions={this.handleDeleteOptions}
+                    handleDeleteOption={this.handleDeleteOption}
+                />
+
+///
+const Options = (props) => {
+    return (
+        <div>
+            <button onClick={props.handleDeleteOptions}>Remove All</button>
+            {
+                props.options.map((option) => (
+                    <Option 
+                        key={option} 
+                        optionText={option} 
+                        handleDeleteOption={props.handleDeleteOption}
+                    />
+                ))
+            }
+        </div>
+    )
+}
+
+const Option = (props) => {
+    return (
+        <div>
+            {props.optionText}
+            <button 
+                onClick={(e) => {
+                    props.handleDeleteOption(props.optionText)
+                }}
+            >
+                remove
+            </button>
+        </div>
+    )
+}
+
+```
+
+
 44. Lifecycle Methods
 10분
 
