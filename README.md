@@ -1648,6 +1648,27 @@ const Option = (props) => {
 44. Lifecycle Methods
 10분
 
+- componentDidMount
+- componentDidUpdate
+- componentWillUnmount
+
+- search : react component lifecycle, click "React.Component - React - Facebook Code"
+
+```JavaScript
+// src/app.js
+    componentDidMount() {
+        console.log('fetching data')
+    }
+    componentDidUpdate(prevProps, prevState) {
+        console.log('saving data!')
+    }
+    componentWillUnmount() {
+        console.log('componentWillUnmount')
+    }
+    handleDeleteOptions() {
+        this.setState(() =>({ options: [] }))
+    }
+```
 45. Saving and Loading Options Data
 15분
 
