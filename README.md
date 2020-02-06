@@ -1731,6 +1731,30 @@ const Options = (props) => {
 46. Saving and Loading the Count
 11분
 
+```JavaScript
+// playground/counter-example.js
+
+    componentDidMount() {
+        try {
+            const stringCount = localStorage.getItem('count')
+            const count = parseInt(stringCount,10)
+            if (!isNaN(count)) {
+                this.setState(() => ({ count }))
+            }
+        } catch (e) {
+
+        }
+        
+    }
+    componentDidUpdate(prevProps, prevState) {
+        if (prevState.count !== this.state.count) {
+            
+            localStorage.setItem('count', this.state.count)
+        }
+        
+    }
+```
+
 ## Section 6: Webpack
 2시간 16분
 ## Section 7: Using a Third-Party Component
