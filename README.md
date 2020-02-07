@@ -1757,6 +1757,47 @@ const Options = (props) => {
 
 ## Section 6: Webpack
 2시간 16분
+
+47. Section Intro: Webpack
+1분
+
+- React feature
+- 3rd party library
+
+48. What Is Webpack?
+9분
+
+49. Avoid Global Modules
+8분
+
+50. Installing & Configuring Webpack
+17분
+
+51. ES6 import/export
+19분
+
+52. Default Exports
+11분
+
+53. Importing npm Modules
+11분
+
+54. Setting up Babel with Webpack
+9분
+
+55. One Component per File
+18분
+
+56. Source Maps with Webpack
+5분
+
+57. Webpack Dev Server
+9분
+
+58. ES6 class properties
+18분
+
+
 ## Section 7: Using a Third-Party Component
 29분
 ## Section 8: Styling React
