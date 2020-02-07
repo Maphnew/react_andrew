@@ -1770,6 +1770,36 @@ const Options = (props) => {
 49. Avoid Global Modules
 8분
 
+- delete 
+
+```bash
+$ npm uninstall -g babel-cli live-server
+```
+
+- install
+
+```bash
+$ yarn add live-server babel-cli@6.24.1
+```
+- add to package.json
+
+```json
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
+```
+
+- type "yarn run serve", "yarn run build"
+
+```bash
+$ yarn run serve
+
+$ yarn run build
+```
+
+- test on app.js
+
 50. Installing & Configuring Webpack
 17분
 
