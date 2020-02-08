@@ -1803,6 +1803,51 @@ $ yarn run build
 50. Installing & Configuring Webpack
 17분
 
+```bash
+$ yarn add webpack@3.1.0
+```
+
+- modify package.json
+
+```json
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack --watch",
+    "build-babel": "babel src/app.js --out-file=public/scripts/app.js --presets=env,react --watch"
+  },
+```
+
+- create webpack.config.js
+```JavaScript
+// entry point -> output
+const path = require('path')
+
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    }
+};
+```
+
+```bash
+$ node webpack.config.js
+```
+
+- remove public/scripts folder
+
+- delete change script down below in index.html
+-   
+
+```html
+<!-- delete -->
+        <script src="https://unpkg.com/react@16.0.0/umd/react.development.js"></script>
+        <script src="https://unpkg.com/react-dom@16.0.0/umd/react-dom.development.js"></script>
+<!-- change -->
+        <script src="/bundle.js"></script>
+```
+
 51. ES6 import/export
 19분
 
