@@ -1851,6 +1851,25 @@ $ node webpack.config.js
 51. ES6 import/export
 19분
 
+```JavaScript
+// src/person.js
+
+console.log('person!')
+
+const isAdult = (age) => age >= 18
+    
+const canDrink = (age) => age >= 21
+
+export { isAdult, canDrink }
+```
+```JavaScript
+// src/app.js
+import { isAdult, canDrink } from './person.js'
+
+console.log('app!')
+console.log(isAdult(18))
+console.log(canDrink(18))
+```
 52. Default Exports
 11분
 
