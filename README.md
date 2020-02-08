@@ -1873,6 +1873,53 @@ console.log(canDrink(18))
 52. Default Exports
 11분
 
+
+```JavaScript
+// src/app.js
+
+// import './utils.js'
+// import subtract, { square, add } from './utils.js'
+
+// console.log('app.js is running')
+// console.log(square(4))
+// console.log(add(2,3))
+// console.log(subtract(54,3))
+
+import isSenior, {isAdult, canDrink} from './person.js';
+console.log('app!')
+console.log(isAdult(18))
+console.log(canDrink(18))
+console.log(isSenior(64))
+```
+
+```JavaScript
+// src/utils.js
+console.log('utils.js is running')
+
+export const square = (x) => x * x;
+
+export const add = (a, b) => a + b;
+
+// const subtract = (a ,b) => a-b;
+
+export default (a ,b) => a-b;
+
+// export { square, add, subtract as default }
+// exports - default export - named exports
+```
+
+```JavaScript
+// src/person.js
+console.log('person!')
+
+const isAdult = (age) => age >= 18
+const canDrink = (age) => age >= 21
+const isSenior = (age) => age >= 65
+
+// export default (age) => age >= 65
+// export { isAdult, canDrink}
+export { isAdult, canDrink, isSenior as default }
+```
 53. Importing npm Modules
 11분
 
