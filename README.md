@@ -1923,6 +1923,20 @@ export { isAdult, canDrink, isSenior as default }
 53. Importing npm Modules
 11분
 
+```bash
+$ yarn add react@16.0.0 react-dom@16.0.0
+```
+```JavaScript
+// src/app.js
+
+// install -> import -> use
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const template = React.createElement('p', {}, 'testing 123')
+ReactDOM.render(template, document.getElementById('app'))
+```
+
 54. Setting up Babel with Webpack
 9분
 
