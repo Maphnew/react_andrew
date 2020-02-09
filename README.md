@@ -1939,6 +1939,41 @@ ReactDOM.render(template, document.getElementById('app'))
 
 54. Setting up Babel with Webpack
 9분
+```bash
+$ yarn add babel-core@6.25.0 babel-loader@7.1.1
+```
+```JavaScript
+// webpack.config.js
+
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }]
+    }
+```
+
+- create .babelrc on root directory
+```json
+{
+    "presets": [
+        "env", 
+        "react"
+    ]
+}
+```
+
+```JavaScript
+// src/app.js
+
+// install -> import -> use
+import React from 'react';
+import ReactDOM from 'react-dom';
+
+const template = <p>This is jsx from webpack</p>
+ReactDOM.render(template, document.getElementById('app'))
+```
 
 55. One Component per File
 18분
