@@ -1978,6 +1978,26 @@ ReactDOM.render(template, document.getElementById('app'))
 55. One Component per File
 18분
 
+- Move, import, export
+
+```JavaScript
+// src/app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp'
+
+// Moving the component code
+// Setup import/export
+// Move the imports that new files (and setup an import here)
+
+
+// Challenge
+// Create the file, copy the code, setup import/export
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+```
+
 56. Source Maps with Webpack
 5분
 
