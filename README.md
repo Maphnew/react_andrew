@@ -2451,6 +2451,116 @@ ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
 67. Theming with Variables
 14분
 
+```scss
+// _settings.scss
+// Colors
+$off-black: #20222b;
+$dark-blue: #333745;
+$off-white: #a5afd7;
+
+// Spacing
+$m-size: 1.6rem;
+$l-size: 3.2rem;
+$xl-size: 4.8rem;
+```
+```scss
+// _container.scss
+.container {
+    max-width: 60rem;
+    margin: 0 auto;
+    padding: 0 $m-size;
+}
+```
+```scss
+// styles.scss
+@import './base/settings';
+@import './base/base';
+@import './components/container';
+@import './components/header';
+
+```
+```scss
+// _base.scss
+html {
+    font-size: 62.5%;
+}
+body {
+    background: $dark-blue;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: $m-size;
+}
+```
+```scss
+// _header.scss
+.header {
+    background: $off-black;
+    color: white;
+    margin-bottom: $xl-size;
+    padding: $m-size 0;
+}
+// BEM block element modifier
+// google BEM
+.header__title {
+    font-size: $l-size;
+    margin: 0;
+}
+
+.header__subtitle {
+    color: $off-white;
+    font-size: $m-size;
+    font-weight: 500;
+    margin: 0;
+}
+```
+```JavaScript
+// IndecisionApp.js
+        return (
+            <div>
+                <Header subtitle={subtitle}/>
+                <div className="container">
+                    <Action 
+                        hasOptions={this.state.options.length > 0}
+                        handlePick={this.handlePick}
+                    />
+                    <Options 
+                        options={this.state.options} 
+                        handleDeleteOptions={this.handleDeleteOptions}
+                        handleDeleteOption={this.handleDeleteOption}
+                    />
+                    <AddOption 
+                        handleAddOption={this.handleAddOption}
+                    />
+                </div>
+                
+                <OptionModal 
+                    handleClearSelectedOption={this.handleClearSelectedOption}
+                    selectedOption={this.state.selectedOption}
+                />
+            </div>
+        )
+```
+
+```JavaScript
+// Header.js
+
+import React from 'react'
+
+const Header = (props) => (
+    <div className="header">
+        <div className="container">
+            <h1 className="header__title">{props.title}</h1>
+            {props.subtitle && <h2 className="header__subtitle">{props.subtitle}</h2>}
+        </div>
+    </div>
+)
+
+Header.defaultProps = {
+    title: 'Indecision'
+}
+
+export default Header
+```
+
 68. Big Button & Options List
 15분
 
