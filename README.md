@@ -2073,6 +2073,132 @@ $ yarn run dev-server
 58. ES6 class properties
 18분
 
+- babel plugin
+
+```bash
+$ yarn add bable-plugin-transform-class-properties@6.24.1
+```
+
+```json
+// .babelrc
+
+{
+    "presets": [
+        "env", 
+        "react"
+    ],
+    "plugins": [
+        "transform-class-properties"
+    ]
+}
+```
+
+```JavaScript
+
+// src/app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp'
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+
+class OldSyntax {
+    constructor() {
+        this.name = 'Mike';
+        this.getGreeting = this.getGreeting.bind(this)
+    }
+    getGreeting() {
+        return `Hi, My name is ${this.name}`
+    }
+}
+
+const oldSyntax  = new OldSyntax();
+const getGreeting = oldSyntax.getGreeting;
+console.log(getGreeting());
+
+// ---------------------
+
+class NewSyntax {
+    name = 'Jen';
+    getGreeting = () => {
+        return `Hi, My name is ${this.name}`
+    }
+}
+
+const newSyntax = new NewSyntax()
+const newGetGreeting = newSyntax.getGreeting
+console.log(newGetGreeting())
+```
+
+```JavaScript
+// AddOptions.js
+
+import React from 'react';
+
+export default class AddOption extends React.Component {
+    state = {
+        error: undefined
+    }
+    handleAddOption = (e) => {
+        e.preventDefault()
+        const option = e.target.elements.option.value.trim()
+        const error = this.props.handleAddOption(option)
+
+        this.setState(() => ({ error }))
+
+        if (!error) {
+            e.target.elements.option.value = '';
+        }
+    }
+    render() {
+        return (
+            <div>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.handleAddOption}>
+                    <input type="text" name="option"/>
+                    <button>ADD Option</button>
+                </form>
+            </div>
+        )
+    }
+}
+```
+
+```JavaScript
+// IndecisionApp.js
+
+// pull the state out of constructor
+// convert all 4 event handler to class properties (arrow functions)
+// delete the constructor completely
+// start with class properties and end with method
+
+
+    state = {
+        options: []
+    }
+    handleDeleteOptions = () => {
+        this.setState(() =>({ options: [] }))
+    }
+    handleDeleteOption = (optionToRemove) => {
+        this.setState((prevState) => ({
+            options: prevState.options.filter((option) => optionToRemove !== option)
+        }))
+    }
+    handlePick = () => {
+        const randomNum = Math.floor(Math.random() * this.state.options.length)
+        const option = this.state.options[randomNum]
+        alert(option)
+    }
+    handleAddOption = (option) => {
+        if (!option) {
+            return 'Enter valid value to add item'
+        }else if(this.state.options.indexOf(option) > -1) {
+            return 'This option already exists'
+        }
+        this.setState((prevState) => ({ options: prevState.options.concat(option) }))
+    }
+```
 
 ## Section 7: Using a Third-Party Component
 29분
