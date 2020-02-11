@@ -2312,6 +2312,61 @@ export default OptionModal;
 64. Setting up Webpack with SCSS
 13분
 
+```bash
+$ yarn add style-loader@0.18.2 css-loader@0.28.4
+```
+```JavaScript
+// src/app.js
+import './styles/styles.css'
+```
+```css
+
+* {
+    color: red;
+}
+
+```
+```JavaScript
+// webpack.config.js
+
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            use:[
+                'style-loader',
+                'css-loader'
+            ]
+        }]
+    },
+```
+```bash
+$ yarn add sass-loader@6.0.6 node-sass@4.5.3
+```
+```JavaScript
+// webpack.config.js
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }, {
+            test: /\.scss$/,
+            use:[
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        }]
+    },
+```
+- webpack-cli
+```bash
+$ yarn add webpack-cli@3.3.0
+```
 65. Architecture and Header Styles
 15분
 
