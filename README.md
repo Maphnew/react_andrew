@@ -2027,6 +2027,49 @@ module.exports = {
 57. Webpack Dev Server
 9분
 
+```bash
+$ yarn add webpack-dev-server@2.5.1
+```
+```JavaScript
+// webpack.config.js
+
+// entry point -> output
+const path = require('path')
+
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }]
+    },
+    devtool: 'cheap-module-eval-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'public')
+    }
+};
+```
+- modify "scripts"
+```json
+// package.json
+
+  "scripts": {
+    "serve": "live-server public/",
+    "build": "webpack",
+    "dev-server": "webpack-dev-server"
+  },
+```
+- turn off yarn run serve, yarn run build
+```bash
+$ yarn run dev-server
+```
+
 58. ES6 class properties
 18분
 
