@@ -2001,6 +2001,29 @@ ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
 56. Source Maps with Webpack
 5분
 
+```JavaScript
+// webpack.config.js
+
+// entry point -> output
+const path = require('path')
+
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }]
+    },
+    devtool: 'cheap-module-eval-source-map'
+};
+```
+
 57. Webpack Dev Server
 9분
 
