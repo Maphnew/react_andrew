@@ -2370,6 +2370,49 @@ $ yarn add webpack-cli@3.3.0
 65. Architecture and Header Styles
 15분
 
+```scss
+// style.scss
+
+@import './base/base';
+@import './components/header';
+```
+
+```scss
+// styles/base/_base.scss
+
+html {
+    font-size: 62.5%;
+}
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+}
+```
+
+```scss
+// styles/components/_header.scss
+
+.header {
+    background: #20222b;
+    color: white;
+    margin-bottom: 4.8rem;
+    padding: 1.6rem 0;
+}
+// BEM block element modifier
+// google BEM
+.header__title {
+    font-size: 3.2rem;
+    margin: 0;
+}
+
+.header__subtitle {
+    color: #a5afd7;
+    font-size: 1.6rem;
+    font-weight: 500;
+    margin: 0;
+}
+```
+
 66. Reset That $#!*
 5분
 
