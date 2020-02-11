@@ -2202,6 +2202,53 @@ export default class AddOption extends React.Component {
 
 ## Section 7: Using a Third-Party Component
 29분
+
+59. Section Intro: Using a Third-Party Component
+1분
+
+60. Passing Children to Component
+6분
+
+```JavaScript
+// app.js
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp'
+
+const Layout = (props) => {
+    return (
+        <div>
+            <p>header</p>
+            {props.children}
+            <p>footer</p>
+        </div>
+    )
+}
+
+const template = (
+    <div>
+        <h1>Page Title</h1>
+        <p>This is my page</p>
+    </div>
+)
+
+ReactDOM.render((
+    <Layout>
+        <div>
+            <h1>Page Title</h1>
+            <p>This is my page</p>
+        </div>
+    </Layout>
+), document.getElementById('app'))
+```
+
+61. Setting up React-Modal
+19분
+
+62. Bonus: Refactoring Other Stateless Functional Components
+2분
+
+
 ## Section 8: Styling React
 2시간 8분
 ## Section 9: React-Router
