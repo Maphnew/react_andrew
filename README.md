@@ -2305,6 +2305,40 @@ export default OptionModal;
 
 ## Section 8: Styling React
 2시간 8분
+
+63. Section Intro: Styling React
+1분
+
+64. Setting up Webpack with SCSS
+13분
+
+65. Architecture and Header Styles
+15분
+
+66. Reset That $#!*
+5분
+
+67. Theming with Variables
+14분
+
+68. Big Button & Options List
+15분
+
+69. Styling the Options List
+14분
+
+70. Styling Option Item
+17분
+
+71. Styling React-Modal
+18분
+
+72. Mobile Considerations
+13분
+
+73. Bonus: Favicon
+3분
+
 ## Section 9: React-Router
 1시간 35분
 ## Section 10: Redux
