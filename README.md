@@ -2416,6 +2416,38 @@ body {
 66. Reset That $#!*
 5분
 
+```bash
+$ yarn add normalize.css@8.0.1
+```
+
+```JavaScript
+import React from 'react';
+import ReactDOM from 'react-dom';
+import IndecisionApp from './components/IndecisionApp'
+import 'normalize.css/normalize.css'
+import './styles/styles.scss'
+
+ReactDOM.render(<IndecisionApp />, document.getElementById('app'))
+```
+```JavaScript
+// webpack.config.js
+
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }, {
+            test: /\.s?css$/,
+            use:[
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        }]
+    },
+
+```
 67. Theming with Variables
 14분
 
