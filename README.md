@@ -2245,6 +2245,60 @@ ReactDOM.render((
 61. Setting up React-Modal
 19분
 
+- pop up
+
+```bash
+$ yarn add react-modal@2.2.2
+```
+
+```JavaScript
+// OptionModal.js
+
+import React from 'react'
+import Modal from 'react-modal'
+
+const OptionModal = (props) => (
+    <Modal
+        isOpen={!!props.selectedOption}
+        onRequestClose={props.handleClearSelectedOption}
+        contentLabel="Selected Option"
+    >
+        <h3>Selected Option</h3>
+        {props.selectedOption && <p>{props.selectedOption}</p>}
+        <button onClick={props.handleClearSelectedOption}>Okay</button>
+    </Modal>
+)
+
+export default OptionModal;
+
+// !!"test" -> true
+// !!undefined -> false
+
+// Create a new event handle in IndecisionApp that clears selectedOption state
+// Pass that into OptionModal
+// Call it on button click
+```
+```JavaScript
+// src/app.js
+    state = {
+        options: [],
+        selectedOption: undefined
+    }
+///    
+    handleClearSelectedOption = () => {
+        this.setState(() => ({
+            selectedOption: false
+        }))
+    }
+///
+
+                <OptionModal 
+                    handleClearSelectedOption={this.handleClearSelectedOption}
+                    selectedOption={this.state.selectedOption}
+                />
+```
+
+
 62. Bonus: Refactoring Other Stateless Functional Components
 2분
 
