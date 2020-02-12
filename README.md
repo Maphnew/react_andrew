@@ -2564,6 +2564,48 @@ export default Header
 68. Big Button & Options List
 15분
 
+```scss
+// _button.scss
+
+// Big Button
+.big-button {
+    background:$purple;
+    border: none;
+    border-bottom: .6rem solid darken($purple, 10%);
+    color: white;
+    font-weight: bold;
+    font-size: $l-size;
+    margin-bottom: $xl-size;
+    padding: 2.4rem;
+    width: 100%;
+
+}
+// search google 'sass reference functions'
+
+.big-button:disabled {
+    opacity: .5;
+}
+
+// Button
+.button {
+    background: $purple;
+    border: none;
+    border-bottom: .3rem solid darken($purple, 10%);
+    color: white;
+    font-weight: 500;
+    padding: $s-size;
+}
+
+.button--link {
+    background: none;
+    border: none;
+    color: $off-white;
+    padding: 0;
+}
+
+// bem
+```
+
 69. Styling the Options List
 14분
 
