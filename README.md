@@ -2829,6 +2829,12 @@ export default Header
 73. Bonus: Favicon
 3분
 
+```html
+// index.html
+
+        <link rel="icon" type="image/png" href="/images/favicon.png"
+```
+
 ## Section 9: React-Router
 1시간 35분
 ## Section 10: Redux
