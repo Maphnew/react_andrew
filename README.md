@@ -2735,6 +2735,97 @@ export default Header
 72. Mobile Considerations
 13분
 
+- meta viewport content width=device-width
+```html
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Indecision App</title>
+    </head>
+    <body>
+        <div id="app"></div>
+        <script src="/bundle.js"></script>
+    </body>
+</html>
+```
+
+- flex-direction
+- @media with min/max-width
+
+```scss
+// _add-options.scss
+
+// Add Option
+.add-option {
+    display: flex;
+    flex-direction: column;
+    padding: $m-size;
+}
+
+.add-option__input {
+    background: $dark-blue;
+    border: none;
+    color: $off-white;
+    border-bottom: .3rem solid darken($dark-blue, 10%);
+    flex-grow: 1;
+    margin: 0 0 $s-size 0;
+    padding: $s-size;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .add-option {
+        flex-direction: row;
+    }
+
+    .add-option__input {
+        margin: 0 $s-size 0 0;
+    }
+}
+```
+
+```scss
+// _header.scss
+
+.header {
+    background: $off-black;
+    color: white;
+    margin: 0 0 $m-size 0;
+    padding: $m-size 0;
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .header {
+        margin: 0 0 $xl-size 0;
+    }
+}
+```
+
+```scss
+// _button.scss
+
+.big-button {
+    background:$purple;
+    border: none;
+    border-bottom: .6rem solid darken($purple, 10%);
+    color: white;
+    font-weight: bold;
+    font-size: $l-size;
+    margin: 0 0 $m-size 0;
+    padding: 2.4rem;
+    width: 100%;
+
+}
+
+@media (min-width: $desktop-breakpoint) {
+    .big-button {
+        margin: 0 0 $xl-size 0;
+    }
+}
+
+```
 73. Bonus: Favicon
 3분
 
