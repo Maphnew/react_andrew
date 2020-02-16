@@ -2850,6 +2850,105 @@ export default Header
 77. React-Router 101
 20분
 
+- for web (react-router-dom)
+- for mobile (react-router-native)
+
+
+```bash 
+$ yarn add react-router-dom@5.1.2
+```
+
+- historyApiFallback: true
+
+```JavaScript
+// webpack.config.js
+
+// entry point -> output
+const path = require('path')
+
+module.exports = {
+    entry: './src/app.js',
+    output: {
+        path: path.join(__dirname, 'public'),
+        filename: 'bundle.js'
+    },
+    module: {
+        rules: [{
+            loader: 'babel-loader',
+            test: /\.js$/,
+            exclude: /node_modules/
+        }, {
+            test: /\.s?css$/,
+            use:[
+                'style-loader',
+                'css-loader',
+                'sass-loader'
+            ]
+        }]
+    },
+    devtool: 'cheap-module-eval-source-map',
+    devServer: {
+        contentBase: path.join(__dirname, 'public'),
+        historyApiFallback: true
+    }
+};
+```
+
+```JavaScript
+// src/app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Route } from 'react-router-dom'
+import 'normalize.css/normalize.css'
+import './styles/styles.scss'
+
+const ExpenseDashboardPage = () => (
+    <div>
+        This is from my dashboard component
+    </div>
+);
+
+const AddExpensePage = () => (
+    <div>
+        This is from my add expense component
+    </div>
+);
+
+const EditExpensePage = () => (
+    <div>
+        This is Edit Expense component
+    </div>
+)
+
+const HelpPage = () => (
+    <div>
+        This is Help page component
+    </div>
+)
+
+const routes = (
+    <BrowserRouter>
+        <div>
+            <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+            <Route path="/create" component={AddExpensePage} />
+            <Route path="/edit" component={EditExpensePage}/>
+            <Route path="/help" component={HelpPage}/>
+        </div>
+    </BrowserRouter>
+);
+
+// /edit EditExpensePage
+// /help HelpPage
+
+ReactDOM.render(routes, document.getElementById('app'))
+```
+
+- http://localhost:8080/help
+- http://localhost:8080/edit
+- http://localhost:8080/create
+- http://localhost:8080/
+
 78. Setting up a 404
 6분
 
