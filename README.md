@@ -2953,6 +2953,7 @@ ReactDOM.render(routes, document.getElementById('app'))
 6분
 
 - Switch
+- one by one
 
 ```JavaScript
 // src/app.js
@@ -2975,6 +2976,53 @@ const routes = (
 79. Linking Between Routes
 14분
 
+- Link
+- NavLink
+
+```JavaScript
+// src/app.js
+
+import { BrowserRouter, Route, Switch, Link, NavLink } from 'react-router-dom'
+
+const Header = () => (
+    <header>
+        <h1>Expensify</h1>
+        <NavLink to="/" activeClassName="is-active" exact={true}>Dashboard</NavLink>
+        <NavLink to="/create" activeClassName="is-active">Create Expense</NavLink>
+        <NavLink to="/edit" activeClassName="is-active">Edit Expense</NavLink>
+        <NavLink to="/help" activeClassName="is-active">Help</NavLink>
+    </header>
+)
+
+// link to home page
+// link to the create expense page
+// link to the edit page
+// linking to the help page
+
+const routes = (
+    <BrowserRouter>
+        <dev>
+            <Header />
+        <Switch>
+            <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+            <Route path="/create" component={AddExpensePage} />
+            <Route path="/edit" component={EditExpensePage}/>
+            <Route path="/help" component={HelpPage}/>
+            <Route component={NotFoundPage} />
+        </Switch>
+        </dev>
+    </BrowserRouter>
+);
+
+```
+```scss
+// _base.scss
+
+.is-active {
+    font-weight: bold;
+    
+}
+```
 80. Organizing Our Routes
 13분
 
