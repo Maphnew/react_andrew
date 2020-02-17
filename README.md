@@ -2952,6 +2952,26 @@ ReactDOM.render(routes, document.getElementById('app'))
 78. Setting up a 404
 6분
 
+- Switch
+
+```JavaScript
+// src/app.js
+import { BrowserRouter, Route, Switch } from 'react-router-dom'
+
+const routes = (
+    <BrowserRouter>
+        <Switch>
+            <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+            <Route path="/create" component={AddExpensePage} />
+            <Route path="/edit" component={EditExpensePage}/>
+            <Route path="/help" component={HelpPage}/>
+            <Route component={NotFoundPage} />
+        </Switch>
+    </BrowserRouter>
+);
+
+```
+
 79. Linking Between Routes
 14분
 
