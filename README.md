@@ -3128,6 +3128,58 @@ const EditExpensePage = (props) => {
 
 ## Section 10: Redux
 3시간
+
+83. Section Intro: Redux
+2분
+
+- Data
+- State is Not enough 
+
+84. Why Do We Need Something Like Redux?
+14분
+
+- Cool
+
+85. Setting up Redux
+8분
+
+86. Dispatching Actions
+13분
+
+87. Subscribing and Dynamic Actions
+10분
+
+88. ES6 Object Destructuring
+16분
+
+89. ES6 Array Destructuring
+11분
+
+90. Refactoring and Organizing
+17분
+
+91. Reducers
+12분
+
+92. Working with Multiple Reducers
+14분
+
+93. ES6 Spread Operator in Reducers
+18분
+
+94. Spreading Objects
+15분
+
+95. Wrapping up Our Reducers
+10분
+
+96. Filtering Redux Data
+17분
+
+97. Sorting Redux Data
+6분
+
+
 ## Section 11: React with Redux
 3시간 2분
 ## Section 12: Testing Your Application
