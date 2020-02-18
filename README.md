@@ -3080,6 +3080,47 @@ ReactDOM.render(<AppRouter />, document.getElementById('app'))
 81. Query Strings and URL Parameters
 9분
 
+- localhost:8080/edit?query=rent&sort=date
+- console.log(props) : Object - location - search
+
+- localhost:8080/edit#contact-us
+- console.log(props) : Object - location - hash
+
+
+```JavaScript
+// routers/AppRouter.js
+const AppRouter = () => (
+    <BrowserRouter>
+        <div>
+            <Header />
+            <Switch>
+                <Route path="/" component={ExpenseDashboardPage} exact={true}/>
+                <Route path="/create" component={AddExpensePage} />
+                <Route path="/edit/:id" component={EditExpensePage}/>
+                <Route path="/help" component={HelpPage}/>
+                <Route component={NotFoundPage} />
+            </Switch>
+        </div>
+    </BrowserRouter>
+);
+
+```
+
+```JavaScript
+// components/EditExpensePage.js
+
+const EditExpensePage = (props) => {
+    console.log(props)
+    return (
+        <div>
+            Editing the expense with id of {props.match.params.id}
+        </div>
+    )
+}
+```
+
+- go to localhost:8080/edit/88
+
 82. Build It: Router for Portfolio Site
 18분
 
