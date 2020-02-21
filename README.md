@@ -3181,6 +3181,68 @@ console.log(store.getState()) // {count:0}
 86. Dispatching Actions
 13분
 
+```JavaScript
+// redux-101.js
+
+import { createStore } from 'redux'
+
+const store = createStore((state = { count : 0 }, action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            return {
+                count: state.count + 1
+            }
+        case 'DECREMENT':
+            return {
+                count: state.count - 1
+            }
+        case 'RESET':
+            return {
+                count: 0
+            }
+        default: 
+            return state
+    }
+
+    // if (action.type === 'INCREMENT') {
+    //     return {
+    //         count: state.count + 1
+    //     }
+    // } else {
+    //     return state
+    // }
+})
+
+console.log(store.getState())
+
+// Actions - than an object that gets sent to the store
+
+// walk, stop_walking, sit, work, stop_working
+
+// increment, decrement, reset
+
+// I'd like to increment the count
+store.dispatch({
+    type: 'INCREMENT'
+})
+store.dispatch({
+    type: 'INCREMENT'
+})
+
+// RESET - set the count equal to zero
+store.dispatch({
+    type: 'RESET'
+})
+
+store.dispatch({
+    type: 'DECREMENT'
+})
+
+// I'd like to reset the count to zero
+
+console.log(store.getState())
+```
+
 87. Subscribing and Dynamic Actions
 10분
 
