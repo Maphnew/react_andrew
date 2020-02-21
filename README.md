@@ -3143,6 +3143,41 @@ const EditExpensePage = (props) => {
 85. Setting up Redux
 8분
 
+```bash
+$ yarn add redux@4.0.5
+```
+
+```JavaScript
+// redux-101.js
+import { createStore } from 'redux'
+const store = createStore((state) => {
+
+})
+// same
+this.setState((prevState) => {
+    return prevState
+})
+```
+```JavaScript
+(state = { count : 0 }) // default state
+```
+
+```JavaScript
+// redux-101.js
+import { createStore } from 'redux'
+
+const store = createStore((state = { count : 0 }) => {
+    return state
+})
+
+console.log(store.getState()) // {count:0}
+
+// NEXT
+// Actions
+// I'd like to increment the count
+// I'd like to reset the count to zero
+```
+
 86. Dispatching Actions
 13분
 
