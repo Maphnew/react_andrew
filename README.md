@@ -3473,6 +3473,67 @@ store.dispatch(setCount({ count: 101 }))
 91. Reducers
 12분
 
+1. Reducers are pure functions
+2. Never change state or action
+
+```JavaScript
+// playground/redux-101.js
+
+// Reducers
+// 1. Reducers are pure functions
+// 2. Never change state or action
+
+const countReducer = (state = { count : 0 }, action) => {
+    switch (action.type) {
+        case 'INCREMENT':
+            // const incrementBy = typeof action.incrementBy === 'number' ? action.incrementBy : 1
+            return {
+                count: state.count + action.incrementBy
+            }
+        case 'DECREMENT':
+            // const decrementBy = typeof action.decrementBy === 'number' ? action.decrementBy : 1
+            return {
+                count: state.count - action.decrementBy
+            }
+        case 'SET':
+            return {
+                count: action.count
+            }
+        case 'RESET':
+            return {
+                count: 0
+            }
+        default: 
+            return state
+    }
+}
+
+const store = createStore(countReducer)
+
+```
+```JavaScript
+// playground/redux-expensify.js
+
+import { createStore, combineReducers } from 'redux'
+
+const demoState = {
+    expenses: [{
+        id: 'dapappadoiqjq',
+        description: 'January Rent',
+        note: 'This was the final payment for that address',
+        amount: 54500,
+        createdAt: 0
+    }],
+    filters: {
+        text: 'rent',
+        sortBy: 'amount', // date or amount
+        startDate: undefined,
+        endDate: undefined
+    }
+}
+
+
+```
 92. Working with Multiple Reducers
 14분
 
