@@ -3730,6 +3730,102 @@ const demoState = {
 94. Spreading Objects
 15분
 
+```JavaScript
+console.log({
+    ...user 
+})
+```
+
+- error
+
+
+- google: babel object spread operator   
+- https://babeljs.io/docs/en/6.26.3/babel-plugin-transform-object-rest-spread   
+
+```bash
+$ yarn add babel-plugin-transform-object-rest-spread@6.26.0
+```
+
+- add to file .babelrc
+```json
+    "plugins": [
+        "transform-class-properties",
+        "transform-object-rest-spread"
+    ]
+}
+```
+
+```bash
+$ yarn run dev-server
+```
+
+- no error   
+
+```JavaScript
+// redux-expensify.js
+
+// EDIT_EXPRENSE
+const editExpense = (id, updates) => ({
+    type: 'EDIT_EXPENSE',
+    id,
+    updates
+})
+
+const expensesReducer = (state = expensesReducerDefaultState, action) => {
+    switch (action.type) {
+        case 'ADD_EXPENSE':
+            return [
+                ...state,
+                action.expense
+            ]
+        case 'REMOVE_EXPENSE':
+            return state.filter(({ id }) => id !== action.id)
+        case 'EDIT_EXPENSE':
+            return state.map((expense) => {
+                if (expense.id === action.id) {
+                    return {
+                        ...expense,
+                        ...action.updates
+                    }
+                } else {
+                    return expense
+                }
+            })
+        default:
+            return state
+    }
+}
+
+store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))
+```
+- Apply to filter
+
+```JavaScript
+
+// SET_TEXT_FILTER
+const setTextFilter = (text = '') => ({
+    type: 'SET_TEXT_FILTER',
+    text
+})
+
+
+const filtersReducer = (state = filtersReducerDefaultState, action) => {
+    switch (action.type) {
+        case 'SET_TEXT_FILTER':
+            return {
+                ...state,
+                text: action.text
+            }
+        default:
+            return state
+    }
+}
+
+store.dispatch(setTextFilter('rent'))
+store.dispatch(setTextFilter())
+
+```
+
 95. Wrapping up Our Reducers
 10분
 
