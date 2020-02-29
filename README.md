@@ -3883,6 +3883,40 @@ store.dispatch(setEndDate(1250))
 96. Filtering Redux Data
 17분
 
+```JavaScript
+
+// Get visible expenses
+const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
+    return expenses.filter((expense) => {
+        const startDateMatch = typeof startDate !== 'number' || expense.createdAt >= startDate
+        const endDataMatch = typeof endDate !== 'number' || expense.createdAt <= endDate
+        const textMatch = expense.description.toLowerCase().includes(text.toLowerCase())
+
+        // figure out if expenses.description as the text variable string inside of it
+        // includes 
+        // convert both strings to lower case
+
+        return startDateMatch && endDataMatch && textMatch
+    })
+}
+
+store.subscribe(() => {
+    const state = store.getState()
+    const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
+    console.log(visibleExpenses)
+})
+
+const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }))
+const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 300, createdAt: -1000 }))
+
+store.dispatch(setTextFilter('rent'))
+// or
+store.dispatch(setTextFilter('aaaa'))
+// or
+store.dispatch(setTextFilter('ffe'))
+
+```
+
 97. Sorting Redux Data
 6분
 
