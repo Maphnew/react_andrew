@@ -127,12 +127,6 @@ const filtersReducer = (state = filtersReducerDefaultState, action) => {
     }
 }
 
-// timestamps (milliseconds)
-// January 1st 1970 (unix epoch)
-// 33400, 10, -203
-
-
-
 // Get visible expenses
 const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
     return expenses.filter((expense) => {
@@ -145,6 +139,14 @@ const getVisibleExpenses = (expenses, { text, sortBy, startDate, endDate }) => {
         // convert both strings to lower case
 
         return startDateMatch && endDataMatch && textMatch
+    }).sort((a, b) => {
+        if (sortBy === 'date') {
+            return a.createdAt < b.createdAt ? 1 : -1
+        } else if (sortBy === 'amount') {
+            return a.amount < b.amount ? 1 : -1
+        }
+        // sortBy -> amount
+        // put the ones with a greater amount first
     })
 }
 
@@ -163,16 +165,16 @@ store.subscribe(() => {
     console.log(visibleExpenses)
 })
 
-const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: 1000 }))
+const expenseOne = store.dispatch(addExpense({ description: 'Rent', amount: 100, createdAt: -21000 }))
 const expenseTwo = store.dispatch(addExpense({ description: 'Coffee', amount: 300, createdAt: -1000 }))
 
 // store.dispatch(removeExpense({ id: expenseOne.expense.id }))
 // store.dispatch(editExpense(expenseTwo.expense.id, { amount: 500 }))
 
-store.dispatch(setTextFilter('rent'))
+// store.dispatch(setTextFilter('rent'))
 // store.dispatch(setTextFilter())
 
-// store.dispatch(sortByAmount()) // amount 
+store.dispatch(sortByAmount()) // amount 
 // store.dispatch(sortByDate()) // date
 
 // store.dispatch(setStartDate(0))
