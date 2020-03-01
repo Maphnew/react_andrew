@@ -3965,6 +3965,13 @@ store.dispatch(sortByAmount()) // amount
 - Create Directories and files
 - actions, reducers, selectors, store
 
+- Edit wabpack.config.js
+```JavaScript
+// webpack.config.js
+
+        entry: './src/app.js',
+```
+
 ```JavaScript
 // src/app.js
 
