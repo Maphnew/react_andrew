@@ -3955,6 +3955,82 @@ store.dispatch(sortByAmount()) // amount
 ```
 ## Section 11: React with Redux
 3시간 2분
+
+98. Section Intro: Connecting React and Redux
+1분
+
+99. Organizing Redux
+15분
+
+- Create Directories and files
+- actions, reducers, selectors, store
+
+```JavaScript
+// src/app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import AppRouter from './routers/AppRouter'
+import configureStore from './store/configureStore'
+import { addExpense } from './actions/expenses'
+import { setTextFilter } from './actions/filters'
+import getVisibleExpenses from './selectors/expenses'
+import 'normalize.css/normalize.css'
+import './styles/styles.scss'
+
+const store = configureStore()
+
+store.dispatch(addExpense({ description: 'Water bill' }))
+store.dispatch(addExpense({ description: 'Gas bill' }))
+// store.dispatch(setTextFilter('bill'))
+store.dispatch(setTextFilter('water'))
+
+const state = store.getState()
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
+console.log(visibleExpenses)
+
+// addExpense -> Water bill
+// addExpense -> Gas bill
+// setTextFilter -> bill (2 items) -> water (1 item)
+// getVisibleExpenses -> print visible ones to screen
+
+ReactDOM.render(<AppRouter />, document.getElementById('app'))
+```
+
+100. The Higher Order Component
+16분
+
+101. Connecting Store and Component with React-Redux
+16분
+
+102. Rendering Individual Expenses
+9분
+
+103. Controlled Inputs for Filters
+14분
+
+104. Dropdown for Picking SortBy
+9분
+
+105. Creating Expense Add/Edit Form
+20분
+
+106. Setting up a Date Picker
+22분
+
+107. Wiring up Add Expense
+17분
+
+108. Wiring up Edit Expense
+19분
+
+109. Redux Dev Tools
+6분
+
+110. Filtering by Dates
+20분
+
+
 ## Section 12: Testing Your Application
 4시간 14분
 ## Section 13: Deploying Your Apps
