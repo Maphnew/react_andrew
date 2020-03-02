@@ -4001,6 +4001,7 @@ console.log(visibleExpenses)
 // setTextFilter -> bill (2 items) -> water (1 item)
 // getVisibleExpenses -> print visible ones to screen
 
+
 ReactDOM.render(<AppRouter />, document.getElementById('app'))
 ```
 
