@@ -4060,6 +4060,94 @@ ReactDOM.render(<AuthInfo isAuthenticated={false} info="There are the details" /
 101. Connecting Store and Component with React-Redux
 16분
 
+- google: react-redux
+
+```bash
+$ yarn add react-redux@7.2.0
+```
+
+```JavaScript
+// app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import AppRouter from './routers/AppRouter'
+import configureStore from './store/configureStore'
+import { addExpense } from './actions/expenses'
+import { setTextFilter } from './actions/filters'
+import getVisibleExpenses from './selectors/expenses'
+import 'normalize.css/normalize.css'
+import './styles/styles.scss'
+
+const store = configureStore()
+
+store.dispatch(addExpense({ description: 'Water bill' }))
+store.dispatch(addExpense({ description: 'Gas bill' }))
+// store.dispatch(setTextFilter('bill'))
+store.dispatch(setTextFilter('water'))
+
+setTimeout(() => {
+    store.dispatch(setTextFilter('rent'))
+}, 3000)
+
+const state = store.getState()
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
+console.log(visibleExpenses)
+
+// 1. Provider Component
+const jsx = (
+    <Provider store={store}> 
+        <AppRouter />
+    </Provider>
+)
+
+ReactDOM.render(jsx, document.getElementById('app'))
+```
+
+```JavaScript
+// components/ExpenseDashboard.js
+
+import React from 'react';
+import ExpenseList from './ExpenseList'
+
+const ExpenseDashboardPage = () => (
+    <div>
+        <ExpenseList />
+    </div>
+);
+
+
+export default ExpenseDashboardPage
+```
+
+```JavaScript
+// components/ExpenseList.js
+
+import React from 'react'
+import { connect } from 'react-redux'
+
+const ExpenseList = (props) => (
+    <div>
+        <h1>ExpenseList</h1>
+        {props.filters.text}
+        {props.expenses.length}
+    </div>
+)
+
+// 2. Higher Order Component
+const mapStateToProps = (state) => {
+    return {
+        expenses: state.expenses,
+        filters: state.filters
+    }
+}
+
+export default connect(mapStateToProps)(ExpenseList)
+
+```
+
+
 102. Rendering Individual Expenses
 9분
 
