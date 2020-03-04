@@ -4242,6 +4242,69 @@ export default ExpenseListItem
 103. Controlled Inputs for Filters
 14분
 
+- HOC
+
+```JavaScript
+// components/ExpenseDashboard.js
+
+import React from 'react';
+import ExpenseList from './ExpenseList'
+import ExpenseListFilters from './ExpenseListFilters'
+
+const ExpenseDashboardPage = () => (
+    <div>
+        <ExpenseListFilters/>
+        <ExpenseList />
+    </div>
+);
+
+
+export default ExpenseDashboardPage
+```
+
+```JavaScript
+// components/ExpenseListFilters.js
+
+import React from 'react'
+import { connect } from 'react-redux'
+import { setTextFilter } from '../actions/filters'
+
+const ExpenseListFilters = (props) => (
+    <div>
+        <input type="text" value={props.filters.text} onChange={(e)=> {
+            props.dispatch(setTextFilter(e.target.value))
+        }}/>
+    </div>
+)
+
+const mapStateToProps = (state) => {
+    return {
+        filters: state.filters
+    }
+}
+
+export default connect(mapStateToProps)(ExpenseListFilters)
+```
+
+```JavaScript
+// components/ExpenseListItem.js
+
+import React from 'react'
+import { connect } from 'react-redux'
+import { removeExpense } from '../actions/expenses'
+
+const ExpenseListItem = ({ dispatch, id, description, amount, createdAt }) => (
+    <div>
+        <h3>{description}</h3>
+        <p>{amount} - {createdAt}</p>
+        <button onClick={() => {
+            dispatch(removeExpense({ id }))
+        }}>Remove</button>
+    </div>
+)
+
+export default connect()(ExpenseListItem)
+```
 104. Dropdown for Picking SortBy
 9분
 
