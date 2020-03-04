@@ -4308,6 +4308,81 @@ export default connect()(ExpenseListItem)
 104. Dropdown for Picking SortBy
 9분
 
+
+```JavaScript
+// app.js
+
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux'
+import AppRouter from './routers/AppRouter'
+import configureStore from './store/configureStore'
+import { addExpense } from './actions/expenses'
+import { setTextFilter } from './actions/filters'
+import getVisibleExpenses from './selectors/expenses'
+import 'normalize.css/normalize.css'
+import './styles/styles.scss'
+
+const store = configureStore()
+
+store.dispatch(addExpense({ description: 'Water bill', amount: 4500 }))
+store.dispatch(addExpense({ description: 'Gas bill', createdAt: 1000 }))
+store.dispatch(addExpense({ description: 'Rent', amount: 109500 }))
+
+const state = store.getState()
+const visibleExpenses = getVisibleExpenses(state.expenses, state.filters)
+console.log(visibleExpenses)
+
+const jsx = (
+    <Provider store={store}>
+        <AppRouter />
+    </Provider>
+)
+
+ReactDOM.render(jsx, document.getElementById('app'))
+```
+
+```JavaScript
+// components/ExpenseListFilters.js
+
+import React from 'react'
+import { connect } from 'react-redux'
+import { setTextFilter, sortByDate, sortByAmount } from '../actions/filters'
+
+const ExpenseListFilters = (props) => (
+    <div>
+        <input 
+            type="text" 
+            value={props.filters.text} 
+            onChange={(e)=> {
+                props.dispatch(setTextFilter(e.target.value))
+            }}
+        />
+        <select
+            value={props.filters.sortBy}
+            onChange={(e) => {
+                if (e.target.value === 'date'){
+                    props.dispatch(sortByDate())
+                } else if(e.target.value === 'amount'){
+                    props.dispatch(sortByAmount())
+                }
+            }}
+        >
+            <option value="date">Date</option>
+            <option value="amount">Amount</option>
+        </select>
+    </div>
+)
+
+const mapStateToProps = (state) => {
+    return {
+        filters: state.filters
+    }
+}
+
+export default connect(mapStateToProps)(ExpenseListFilters)
+```
+
 105. Creating Expense Add/Edit Form
 20분
 
