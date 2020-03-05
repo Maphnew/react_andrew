@@ -4308,7 +4308,6 @@ export default connect()(ExpenseListItem)
 104. Dropdown for Picking SortBy
 9분
 
-
 ```JavaScript
 // app.js
 
