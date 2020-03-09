@@ -13,7 +13,8 @@ export default class ExpenseForm extends React.Component {
         note: '',
         amount: '',
         createdAt: moment(),
-        calenderFocused: false
+        calenderFocused: false,
+        error: ''
     }
     onDescriptionChange = (e) => {
         const description = e.target.value
@@ -27,21 +28,41 @@ export default class ExpenseForm extends React.Component {
     // regex101.com : ^\d*(\.\d{0,2})?
     onAmountChange = (e) => {
         const amount = e.target.value
-        if ( amount.match(/^\d*(\.\d{0,2})?$/) ) {
+        if ( !amount || amount.match(/^\d{1,}(\.\d{0,2})?$/) ) {
             this.setState(() => ({ amount }))
         }
         
     }
     onDateChange = (createdAt) => {
-        this.setState(() => ({ createdAt }))
+        if (createdAt) {
+            this.setState(() => ({ createdAt }))
+        }
     }
     onFocusChange = ({ focused }) => {
         this.setState(() => ({ calenderFocused: focused }))
     }
+    onSubmit = (e) => {
+        e.preventDefault()
+
+        if (!this.state.description || !this.state.amount) {
+            // Set error state equal to 'Please provide description and amount'
+            this.setState(() => ({ error: 'Please provide description and amount.'}))
+        } else {
+            // Clear the error
+            this.setState(() => ({ error: ''}))
+            this.props.onSubmit({
+                description: this.state.description,
+                amount: parseFloat(this.state.amount, 10) * 100,
+                createdAt: this.state.createdAt.valueOf(),
+                note: this.state.note
+            })
+        }
+    }
     render() {
         return (
             <div>
-                <form>
+                {this.state.error && <p>{this.state.error}</p>}
+                <form onSubmit={this.onSubmit}>
                     <input 
                         type="text"
                         placeholder="Description"
