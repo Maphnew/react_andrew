@@ -4902,7 +4902,11 @@ export default  ExpenseListItem
 109. Redux Dev Tools
 6분
 
+- google: redux developer tools extension
+
+- take some code to src/store/configureStore.js
 ```JavaScript
+window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 ```
 
 110. Filtering by Dates
