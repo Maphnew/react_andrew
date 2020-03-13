@@ -5002,10 +5002,88 @@ const filtersReducerDefaultState = {
 
 ```
 
-
-
 ## Section 12: Testing Your Application
 4시간 14분
+
+111. Section Intro: Testing React Components
+3분
+
+112. Setting up Jest
+20분
+
+- Install jest
+```bash
+$ yarn add jest@20.0.4
+```
+```JavaScript
+// tests/add.test.js
+const add = (a,b) => a + b;
+const generateGreeting = (name = 'Anonymous') => `Hello ${name}!`;
+
+test('should add two numbers', () => {
+    const result = add(3, 4);
+
+    expect(result).toBe(7)
+});
+
+test('should generate greeting from name', () => {
+    const result = generateGreeting('JEN')
+
+    expect(result).toBe('Hello JEN!')
+})
+
+test('should generate greeting for no name', () => {
+    const result = generateGreeting()
+    expect(result).toBe('Hello Anonymous!')
+})
+```
+
+113. Testing Expenses Action Generators
+17분
+
+114. Testing Filters Action Generators
+11분
+
+115. Testing Expenses Selector
+17분
+
+116. Testing Filters Reducer
+14분
+
+117. Testing Expenses Reducer
+15분
+
+118. Snapshot Testing
+12분
+
+119. Enzyme
+22분
+
+120. Snapshot Testing with Dynamic Components
+16분
+
+121. Mocking Libraries with Jest
+12분
+
+122. Testing User Interaction
+17분
+
+123. Test Spies
+18분
+
+124. Testing AddExpensePage
+15분
+
+125. Testing EditExpensePage
+19분
+
+126. Testing ExpenseListFilters
+15분
+
+127. Testing ExpenseListFilters: Part II
+12분
+
+
 ## Section 13: Deploying Your Apps
 2시간 44분
 ## Section 14: Firebase 101
